@@ -1,15 +1,17 @@
-package model;
+package view;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Mahasiswa;
 import util.InputUtil;
 
-public abstract class DataView<T> {
+public abstract class DataView<T> extends Mahasiswa{
 
     private List<T> records;
 
-    public DataView(T records) {
+    public DataView(String nim, String nama, String email, int umur){
+        super(nim, nama, email, umur);
         this.records = new ArrayList<>();
     }
 
@@ -55,16 +57,17 @@ public abstract class DataView<T> {
             System.out.println(fields[i] + " ");
         }
         String[] values = this.convertModeltoValues();
+        
     }
 
     public void showUpdateForm() {
+        String[] values = this.getFields();
         for (T t : records) {
             getPrimaryKeyValue(t);
-            if (t == ) {
-                
+            if (t == values ) {
+                setNim(getNim());
             }
         }
-        setRecords(records);
     }
 
     public void promptDelete() {

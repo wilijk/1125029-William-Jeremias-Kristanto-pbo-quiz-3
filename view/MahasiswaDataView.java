@@ -1,33 +1,36 @@
 package view;
 
+import java.util.ArrayList;
+
 import javax.xml.crypto.Data;
 
-import model.DataView;
 import model.Mahasiswa;
 
 public class MahasiswaDataView extends DataView{
-    public MahasiswaDataView(String)
+
+    public MahasiswaDataView(String nim, String nama, String email, int umur){
+        super(nim, nama, email, umur);
+    }
 
     @Override
     protected String getPrimaryKeyValue(Mahasiswa data) {
-        return data.getNim;
+        return data.getNim();
     }
 
     @Override
     protected String[] getFields() {
 
-        return new Mahasiswa("nim", "nama", "email", 0);
+        return 
     }
 
     @Override
-    protected String[] convertModeltoValues(Object data) {
-        data.
-        return null;
+    protected String[] convertModeltoValues(Mahasiswa data) {
+        return new Mahasiswa(data.getNim(), data.getNama(), data.getEmail(), String.valueOf(data.getUmur()));
     }
 
     @Override
     protected Object convertModeltoValues(String[] values) {
-        
+
         return null;
     }
 
