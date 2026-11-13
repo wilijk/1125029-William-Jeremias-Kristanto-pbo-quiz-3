@@ -12,7 +12,7 @@ public class InputUtil {
         return n;
     }
 
-    public String readLine() {
+    public static String readLine() {
         return sc.nextLine();
     }
 }

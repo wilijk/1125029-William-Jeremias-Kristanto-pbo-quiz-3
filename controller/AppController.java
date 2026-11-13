@@ -11,8 +11,11 @@ public class AppController {
     public void start(){
         menu = view.menuUtama();
 
-        if (condition) {
-            
+        if (menu == 1) {
+            pilih = view.menuAksi();
+            if (pilih == 1) {
+                
+            }
         }
     }
 }

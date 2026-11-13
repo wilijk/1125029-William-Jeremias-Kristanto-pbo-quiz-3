@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import util.InputUtil;
+
 abstract class DataView<T> {
 
     private List<T> records;
@@ -20,9 +22,14 @@ abstract class DataView<T> {
     }
 
     public void printAll(){
-        for (T t : records) {
-            System.out.println(convertModeltoValues(t));
+        String[] fields = this.getFields();
+        String[] values = this.convertModeltoValues(records);
+        int j = 1;
+        System.out.print(j + ". ");
+        for (int i = 0; i < fields.length; i++) {
+            System.out.print(records);
         }
+        
     }
 
     public void printByPk(String primaryKey){
@@ -41,7 +48,11 @@ abstract class DataView<T> {
 
     public void promptDelete(){
         System.out.println("Primary key yang mau dihapus: ");
-        String hapus = sc.
+        String hapus = InputUtil.readLine();
+
+        for (T h : records) {
+            return h.remove(hapus).getPrimaryKeyValue();
+        }
     }
 
     protected abstract String getPrimaryKeyValue(T data);
